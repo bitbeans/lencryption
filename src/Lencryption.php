@@ -3,7 +3,6 @@
 use RuntimeException;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Encryption\EncryptException;
-use \ParagonIE\ConstantTime\Encoding;
 
 use Config;
 
@@ -16,17 +15,29 @@ class Lencryption {
 	*/
 	protected $_key;
 
+	/**
+	 * Create a new encrypter instance.
+	 *
+	 * @param    array  $config     The client configuration
+	 * @return void
+	 *
+	 * @throws \RuntimeException
+	 */
 	public function __construct( $config = array() )
 	{
 		if (!extension_loaded("libsodium")) {
 			throw new RuntimeException('Missing libsodium extension.');
 		}
 
-		$this->_key = base64_decode((isset($config['key']) && !empty($config['key'])) ? $key : config('lencryption.KEY'));
+		$this->_key = base64_decode((isset($config['LCRYPT_KEY']) && !empty($config['LCRYPT_KEY'])) ? $key : config('lencryption.LCRYPT_KEY'));
 
 		if (!$this->_key)
 		{
-			throw new RuntimeException('Missing KEY.');
+			throw new RuntimeException('Missing LCRYPT_KEY.');
+		}
+
+		if (strlen($this->_key) !== \Sodium\CRYPTO_SECRETBOX_KEYBYTES) {
+			throw new RuntimeException('Invalid LCRYPT_KEY.');
 		}
 	}
 

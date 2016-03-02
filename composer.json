@@ -12,16 +12,9 @@
             "role": "Developer"
         }
     ],
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/paragonie/constant_time_encoding"
-        }
-    ],
     "require": {
         "php": "^5.5|^7",        
-        "illuminate/support": "~5",
-        "paragonie/constant_time_encoding": "dev-master"
+        "illuminate/support": "~5"
     },
     "autoload": {
         "psr-4": {

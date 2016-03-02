@@ -1,4 +1,4 @@
 <?php
 return array(
-	'KEY' => '',
+	'LCRYPT_KEY' => env('LCRYPT_KEY')
 );
