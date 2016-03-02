@@ -1,0 +1,25 @@
+{
+    "name": "bitbeans/lencryption",
+    "description": "Laravel 5.x package to use libsodium encryption in database",
+    "keywords": ["laravel", "laravel5"],
+    "license": "MIT",
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Christian Hermann",
+            "email": "c.hermann@bitbeans.de",
+            "homepage": "https://github.com/bitbeans",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",        
+        "illuminate/support": "~5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bitbeans\\Lencryption\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
