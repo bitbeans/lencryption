@@ -1,7 +1,7 @@
 {
     "name": "bitbeans/lencryption",
     "description": "Laravel 5.x package to use libsodium encryption in database",
-    "keywords": ["laravel", "laravel5"],
+    "keywords": ["laravel", "laravel5", "libsodium", "crypt"],
     "license": "MIT",
     "version": "0.1.0",
     "authors": [
@@ -12,9 +12,16 @@
             "role": "Developer"
         }
     ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/paragonie/constant_time_encoding"
+        }
+    ],
     "require": {
-        "php": ">=5.4.0",        
-        "illuminate/support": "~5"
+        "php": "^5.5|^7",        
+        "illuminate/support": "~5",
+        "paragonie/constant_time_encoding": "dev-master"
     },
     "autoload": {
         "psr-4": {
